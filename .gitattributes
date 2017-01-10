@@ -1,0 +1,7 @@
+# Normalize line endings on checkin
+* text=auto
+
+# Force a specific kind of line endings on checkout
+gradlew text eol=lf
+*.bat text eol=crlf
+*.sh text eol=lf

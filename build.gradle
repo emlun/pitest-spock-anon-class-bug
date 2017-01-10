@@ -12,6 +12,19 @@ repositories {
   mavenCentral()
 }
 
+configurations {
+  pitestCommandline { extendsFrom testRuntime }
+}
+
 dependencies {
   testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
+
+  pitestCommandline(
+    'org.pitest:pitest-command-line:1.1.11',
+  )
+}
+
+task exportDependencies(type: Sync) {
+  from configurations.pitestCommandline
+  into "${project.buildDir}/dependencies"
 }
